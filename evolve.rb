@@ -91,7 +91,7 @@ xd_top_level = {
 }
 
 begin
-  xd_top_level = client.create_category(xd_top_level)
+  xd_top_level = C.create_category(xd_top_level)
 rescue DiscourseApi::UnprocessableEntity
   puts "Failed to create, enter ID"
   xd_top_level['id'] = gets.to_i
@@ -103,13 +103,12 @@ gets
 
 
 xd_plugins_category[:parent_category_id] = xd_top_level[:id]
-xd_plugins_category[:name] = 'UXP Plugin API'
 client.update_category(xd_plugins_category)
 
 
 def safe_create_category(category)
   begin
-    return client.create_category(category)
+    return C.create_category(category)
   rescue DiscourseApi::UnprocessableEntity => e
     puts 'Error encountered when creating category: '
     pp category_id
@@ -181,12 +180,15 @@ photoshop = safe_create_category({
   text_color: 'fff'
 })
 
-uncategorized = client.create_category({
+uncategorized = safe_create_category({
   name: 'Uncategorized',
   description: "Topics that don't need a category, or don't fit into any other existing category.",
   color: '0088CC',
   text_color: 'fff'
 })
 
+puts "Rename UXP Plugin API? (Last step)"
+
+gets
 xd_plugins_category[:name] = 'UXP Plugin API'
 client.update_category(xd_plugins_category)
