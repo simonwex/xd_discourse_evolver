@@ -7,8 +7,12 @@ module DiscourseApi
         put("/t/#{topic_id}.json", topic_id: topic_id, title: title)
       end
 
-      def recategorize_topic_with_new_tags(topic_id, category_id, tags)
-        put("/t/#{topic_id}.json", topic_id: topic_id, category_id: category_id, tags: tags)
+      def recategorize_topic_with_new_tags(topic_id, category_id, tags, updated_at)
+        put("/t/#{topic_id}.json", topic_id: topic_id, category_id: category_id, tags: tags, updated_at: updated_at, bumped_at: updated_at)
+      end
+
+      def reset_bump_date(topic_id)
+        put("t/#{topic_id}/reset-bump-date", topic_id: topic_id)
       end
     end
   end
