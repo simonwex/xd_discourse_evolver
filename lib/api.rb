@@ -29,8 +29,8 @@ end
 
 def self.get_client
   client = DiscourseApi::Client.new("http://localhost:3000")
-  client.api_key = "bd0dc7cf6fe74e28b2536472c2037b4f9c84f57745146abd59428cf6af97f431"
-  client.api_username = 'simon'
+  client.api_key = ""
+  client.api_username = ''
 
   return client
 end
