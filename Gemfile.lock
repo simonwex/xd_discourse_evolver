@@ -1,0 +1,26 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bond (0.5.1)
+    discourse_api (0.42.0)
+      faraday (~> 1.0)
+      faraday_middleware (~> 1.0)
+      rack (>= 1.6)
+    faraday (1.0.1)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (1.0.0)
+      faraday (~> 1.0)
+    multipart-post (2.1.1)
+    rack (2.2.3)
+    ripl (0.7.1)
+      bond (~> 0.5.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  discourse_api
+  ripl
+
+BUNDLED WITH
+   2.1.4
